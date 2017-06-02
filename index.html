@@ -174,10 +174,12 @@
             methods : {
                 login : function (){
                     // ASN REQ 3 : merely singIn with fb here
-
+                    var provider = new firebase.auth.FacebookAuthProvider();
+                    firebase.auth().signInWithPopup(provider).catch(errorCallback)
                 },
                 logout : function (){
                     // ASN REQ 3  : signOut here
+                    firebase.auth().signOut()
                     // Release favritesRef's value listener or just simply calling window.location.reload().
                 },
 
